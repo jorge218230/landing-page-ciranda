@@ -1,0 +1,65 @@
+:root {
+            --primary: #6B8E23; /* Verde Natureza */
+            --secondary: #E9967A; /* Salmão Suave - Lúdico */
+            --accent: #FFD700; /* Amarelo - Energia Infantil */
+            --soft-bg: #FFFDF9;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--soft-bg);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Comfortaa', cursive;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+                        url('imagens/7c91ad_b257a99a3b474462b5c5eda03ae18334~mv2.avif');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .float-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-bounce:hover {
+            animation: bounce 0.5s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-5px); }
+        }
+        
+        /* Fallback para imagens caso o caminho do GitHub mude localmente */
+        img {
+            object-fit: cover;
+            border-radius: 12px;
+        }
