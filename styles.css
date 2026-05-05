@@ -1,65 +1,250 @@
+/* --- Variáveis de Identidade Visual --- */
 :root {
-            --primary: #6B8E23; /* Verde Natureza */
-            --secondary: #E9967A; /* Salmão Suave - Lúdico */
-            --accent: #FFD700; /* Amarelo - Energia Infantil */
-            --soft-bg: #FFFDF9;
-        }
+    --primary: #FFD700;       /* Amarelo Principal da Ciranda */
+    --primary-hover: #e6c200; /* Amarelo para botões (hover) */
+    --secondary: #E9967A;     /* Salmão para os botões de ação (CTA) */
+    --secondary-hover: #d8856a;
+    --accent: #6B8E23;        /* Verde para detalhes de natureza */
+    --bg-soft: #FFFDF9;       /* Fundo creme suave */
+    --text: #4A4A4A;          /* Texto principal */
+    --text-light: #717171;    /* Texto secundário */
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
 
-        body {
-            font-family: 'Nunito', sans-serif;
-            background-color: var(--soft-bg);
-            color: #333;
-            scroll-behavior: smooth;
-        }
+/* --- Reset e Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        h1, h2, h3 {
-            font-family: 'Comfortaa', cursive;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .hero-gradient {
-            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
-                        url('imagens/7c91ad_b257a99a3b474462b5c5eda03ae18334~mv2.avif');
-            background-size: cover;
-            background-position: center;
-        }
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-soft);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-        .float-whatsapp {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: #25d366;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.3s ease;
-        }
+h1, h2, h3, .brand-name {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+}
 
-        .float-whatsapp:hover {
-            transform: scale(1.1);
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
+/* --- Navbar --- */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 
-        .btn-bounce:hover {
-            animation: bounce 0.5s infinite alternate;
-        }
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-5px); }
-        }
-        
-        /* Fallback para imagens caso o caminho do GitHub mude localmente */
-        img {
-            object-fit: cover;
-            border-radius: 12px;
-        }
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.2rem;
+}
+
+.brand-name {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.btn-nav {
+    display: none;
+    background-color: var(--secondary);
+    color: var(--white);
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+@media (min-width: 768px) {
+    .btn-nav { display: block; }
+}
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+                url('imagens/7c91ad_b257a99a3b474462b5c5eda03ae18334~mv2.avif');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-tag {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Botões --- */
+.btn-primary, .btn-secondary, .btn-adaptation, .btn-main-cta {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary { background-color: #25d366; color: var(--white); }
+.btn-secondary { background-color: var(--white); color: var(--text); border: 1px solid #ddd; }
+.btn-adaptation { background-color: var(--primary); color: var(--white); margin-top: 20px; }
+.btn-main-cta { background-color: var(--secondary); color: var(--white); font-size: 1.3rem; padding: 20px 40px; }
+
+.btn-primary:hover, .btn-adaptation:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+/* --- Grid de Cartões --- */
+.section { padding: 80px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+.card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-bottom: 8px solid transparent;
+    transition: var(--transition);
+}
+
+.card:hover { transform: translateY(-10px); }
+.card-primary { border-color: var(--primary); }
+.card-accent { border-color: var(--primary); }
+.card-highlight { border-color: var(--secondary); }
+
+.card-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.card-primary .card-icon-box { background: rgba(255, 215, 0, 0.1); color: var(--primary); }
+.card-highlight .card-icon-box { background: rgba(233, 150, 122, 0.1); color: var(--secondary); }
+
+/* --- Adaptação --- */
+.adaptation-section { background-color: rgba(255, 215, 0, 0.05); padding: 80px 0; }
+.adaptation-content { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+.adaptation-image, .adaptation-text { flex: 1; min-width: 300px; }
+.adaptation-image img { width: 100%; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+.check-list { list-style: none; margin: 30px 0; }
+.check-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-weight: 600; }
+.check-list i { color: var(--primary); }
+
+/* --- Galeria --- */
+.section-header { text-align: center; margin-bottom: 50px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.gallery-item { position: relative; border-radius: 20px; overflow: hidden; height: 350px; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.gallery-item:hover img { transform: scale(1.1); }
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 25px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+/* --- Rodapé --- */
+.footer { background-color: #333; color: white; padding: 60px 0 20px; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+.footer-social a { color: white; font-size: 1.5rem; margin-left: 20px; transition: 0.3s; }
+.footer-social a:hover { color: var(--primary); }
+.footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; opacity: 0.6; font-size: 0.9rem; }
+
+/* --- WhatsApp Flutuante --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    background-color: #25d366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1001;
+}
+
+.whatsapp-float:hover { transform: scale(1.05); }
+
+@media (max-width: 768px) {
+    .whatsapp-float span { display: none; }
+    .hero-title { font-size: 1.8rem; }
+}
